@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to CRUD Operations</title>
+    <link th:href="@{/css/site.css}" rel="stylesheet"/>
+</head>
+<body>
+<h1>Please use form below for CRUD operations</h1>
+
+<form th:action="@{/web}"  method="post"  >
+
+<h2> <label th:text="${games.msgForUser}"></label> </h2>
+
+        <table>
+            <tr><th></th><th>Game ID</th><th>Game Status</th></tr>
+
+            <tr th:each="game:${games.gamelist}">
+                <td>
+                    <input type="checkbox" name="id" th:value="${game.gameId}" />
+                </td>
+                <td >
+                    <p th:text="${game.gameId}" />
+                </td>
+                <td >
+                    <p th:text="${game.gameStatus}" />
+                </td>
+            </tr>
+        </table>
+
+    <input type="submit" name="action" class="button" value="Delete"/>
+    <input type="submit" name="action" class="button" value="Update" />
+    <input type="submit" name="action" class="button" value="New" />
+</form>
+</body>
+</html>

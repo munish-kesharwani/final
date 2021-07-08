@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Create/Edit </title>
+    <link th:href="@{/css/site.css}" rel="stylesheet"/>
+</head>
+<body>
+<h1>Please use form below for CRUD operations</h1>
+
+<form th:action="@{/post}"  th:object="${game}" method="post"  >
+
+    <h2> <label th:text="${game.msgForUser}"></label> </h2>
+
+    <input type="number" id="gameId" th:field="${game.gameId}" />
+    <input type="text" id="gameStatus" th:field="${game.gameStatus}" />
+    <input type="submit" name="action" class="button" value="Save"/>
+
+</form>
+</body>
+</html>
